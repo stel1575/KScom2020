@@ -10,8 +10,7 @@
 <jsp:include page="template.jsp"></jsp:include>
 <nav>
 <section id = "loginformArea">
-<form action="login" name="loginform" 
-	action="./memberLoginAction.me" method="post">
+<form action="login" name="loginform" method="post">
 <table>
 	<tr>
 		<td colspan="2">
