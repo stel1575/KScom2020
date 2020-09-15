@@ -13,11 +13,15 @@
 
 </head>
 <body>
+
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
-<section id = "listForm">
+<jsp:include page="nav.jsp"></jsp:include>
+
+<section>
+
 <c:if test="${cpuList != null}">
 <h2>cpu 정보</h2>	
+
  
 <table>
 	<tr>
@@ -31,8 +35,8 @@
 			조회수:${cpu.readcount }<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
-			</tr>
-			<tr>
+	</tr>
+	<tr>
 		</c:if>
 		</c:forEach>
 	</tr>
@@ -40,13 +44,12 @@
 </c:if>
 <c:if test="${cpuList==null }">
 	<div class="div_empty">
-	없음
+	<h3>cpu리스트가 존재하지 않습니다.</h3>
 	</div>
 </c:if>
+
+
 <c:if test="${todayImageList !=null }">
-
-<a href="ramList.do"><div id="light_com">ram리스트 가기</div></a>
-
 
 <div id ="todayImageList">
 	<h2>오늘 본 상품 목록</h2>
@@ -68,17 +71,21 @@
 </section>
 
 <!-- 관리자만 보이는 페이지 -->
-
-	<ul>
-		<div id="insertProduct">
-		<li><a href="cpuRegistForm.do">CPU등록</a></li>
-		<li><a href="ramRegistForm.do">램 등록</a></li>
- 		<li><a href="mainboardRegistForm.do">메인보드 등록</a></li>
- 		<li><a href="gpuRegistForm.do">그래픽카드 등록</a></li>
- 		</div>
+<section>
+	<ul>	
+		<li><a href="cpuRegistForm.do" class="adPage">CPU등록</a></li>
+		<li><a href="ramRegistForm.do" class="adPage">램 등록</a></li>
+ 		<li><a href="mainboardRegistForm.do" class="adPage">메인보드 등록</a></li>
+ 		<li><a href="gpuRegistForm.do" class="adPage">그래픽카드 등록</a></li>
  	</ul>
-  
-</nav>
+ 	<ul>
+		<li><a href="cpuList.do" class="light_com">cpu리스트 보러가기</a></li>
+		<li><a href="ramList.do" class="light_com">ram리스트 보러가기</a></li>
+		<li><a href="gpuList.do" class="light_com">그래픽카드 보러가기</a></li>
+		<li><a href="mainboardList.do" class="light_com">메인보드 보러가기</a></li>
+	</ul>
+</section> 
+
 
 </body>
 </html>

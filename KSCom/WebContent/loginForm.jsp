@@ -4,20 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
-<style>
-	#loginformArea{
-	    margin : auto;
-		width : 400px;
-		border : 1px solid gray;
-	}
-	table{
-		width : 380px;
-		margin : auto;
-		text-align: center;
-	}
-</style>
+<link rel="stylesheet" href="css/form.css">
 </head>
 <body>
+<jsp:include page="template.jsp"></jsp:include>
+<nav>
 <section id = "loginformArea">
 <form action="login" name="loginform" 
 	action="./memberLoginAction.me" method="post">
@@ -29,7 +20,6 @@
 	</tr>
 	<tr><td><label for = "MEMBER_ID">아이디 : </label></td><td><input type="text" name="MEMBER_ID" id = "MEMBER_ID"/></td></tr>
 	<tr><td><label for = "MEMBER_PW">비밀번호 : </label></td><td><input type="password" name="MEMBER_PW" id = "MEMBER_PW"/></td></tr>
-	
 	<tr>
 		<td colspan="2">
 			<a href="javascript:loginform.submit()">로그인</a>&nbsp;&nbsp;
@@ -40,5 +30,6 @@
 </table>
 </form>
 </section>
+</nav>
 </body>
 </html>

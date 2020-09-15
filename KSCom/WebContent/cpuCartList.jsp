@@ -14,6 +14,10 @@
 <meta charset="UTF-8">
 <title>장바구니 목록</title>
 <link rel="stylesheet" href="css/form.css">
+<style>
+
+
+</style>
 <script>
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
@@ -44,17 +48,18 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
+<jsp:include page="nav.jsp"></jsp:include>
+
 <c:if test="${startMoney !=null }">
 	<c:set var="startMoney" value="${startMoney}"></c:set>
 </c:if>
 <c:if test="${endMoney !=null }">
 	<c:set var="endMoney" value="${endMoney}"></c:set>
 </c:if>
-<section id="listForm">
-	<c:if test="${cartList !=null ||ramcartList !=null }">
+<section>
+
    <h2>장바구니 목록</h2>
-<form method="post">
+	<form method="post">
       <table>
     	<tr id="select">
     		<td colspan="6">
@@ -143,8 +148,10 @@
          </tr>
          
 <!-- 여기서 부터 값 들어가는 부분 -->
+<!-- CPU 값 들어가는 폼 -->
+<c:if test="${cartList ne null && cartList.size()>0 }">
 		<tr>
-			<td>CPU</td>
+			<td colspan="7">CPU</td>
 		</tr>
 		
         <c:forEach var="cart" items="${cartList }" varStatus="status">
@@ -177,8 +184,12 @@
          </td>
          </tr>
         </c:forEach>
-        <tr>
-        	<td>RAM</td>
+        </c:if>
+<!--  RAM 폼 들어가는 부분 -->
+
+<c:if test="${ramcartList ne null && ramcartList.size()> 0 }">
+       	<tr>
+        	<td colspan="7"><h2>RAM</h2></td>
         </tr>
          <c:forEach var="ramcart" items="${ramcartList }" varStatus="status">
         <tr>
@@ -210,8 +221,11 @@
          </td>
          </tr>
         </c:forEach>
+        </c:if>
+<!-- 메인보드 들어가는 폼 부분         -->
+<c:if test="${mainboardcartList ne null && mainboardcartList.size()>0 }">
          <tr>
-        	<td>MainBoard</td>
+        	<td colspan="7"><h2>MainBoard</h2></td>
         </tr>
          <c:forEach var="mainboardcart" items="${mainboardcartList }" varStatus="status">
         <tr>
@@ -243,9 +257,11 @@
          </td>
          </tr>
         </c:forEach>
-        
+        </c:if>
+<!-- 그래픽카드 입력 폼         -->
+<c:if test="${gpucartList ne null && gpucartList.size()>0 }">
          <tr>
-        	<td>그래픽카드</td>
+        	<td colspan="7"><h2>그래픽카드</h2></td>
         </tr>
          <c:forEach var="gpucart" items="${gpucartList }" varStatus="status">
         <tr>
@@ -277,29 +293,212 @@
          </td>
          </tr>
         </c:forEach>
+        </c:if>
+<!-- //TODO         -->
+<!-- 하드디스크값 들어가는 부분         -->
+<c:if test="${hddcartList ne null && hddcartList.size()>0 }">
+ <tr>
+        	<td colspan="7"><h2>HDD</h2></td>
+        </tr>
+         <c:forEach var="hddcart" items="${hddcartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${hddcart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${hddcart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${hddcart.name }
+            </td>
+             <td>
+             ${hddcart.price }
+            </td>
+             <td>
+             <a href="hddCartQtyUp.do?name=${hddcart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${hddcart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${hddcart.name}',${hddcart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="hddCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>
+     </c:if>
+      
+<!-- power값 들어가는 부분         -->
+<c:if test="${powercartList ne null && powercartList.size()>0 }">
+ 		<tr>
+        	<td colspan="7"><h2>Power</h2></td>
+        </tr>
+         <c:forEach var="powercart" items="${powercartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${powercart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${powercart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${powercart.name }
+            </td>
+             <td>
+             ${powercart.price }
+            </td>
+             <td>
+             <a href="powerCartQtyUp.do?name=${powercart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${powercart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${powercart.name}',${powercart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="powerCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>
+        </c:if>
+        
+<!-- SSD 값 들어가는 부분         -->
+<c:if test="${ssdcartList ne null && ssdcartList.size()>0 }">
+ 		<tr>
+        	<td colspan="7"><h2>SSD</h2></td>
+        </tr>
+         <c:forEach var="ssdcart" items="${ssdcartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${ssdcart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${ssdcart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${ssdcart.name }
+            </td>
+             <td>
+             ${ssdcart.price }
+            </td>
+             <td>
+             <a href="ssdCartQtyUp.do?name=${ssdcart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${ssdcart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${ssdcart.name}',${ssdcart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="ssdCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>       
+        </c:if> 
+        
+ <!-- com_case 값 들어가는 부분         -->
+ 
+ <c:if test="${com_casecartList ne null && com_casecartList.size()>0 }">
+ 		<tr>
+        	<td colspan="7"><h2>케이스</h2></td>
+        </tr>
+         <c:forEach var="com_casecart" items="${com_casecartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${com_casecart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${com_casecart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${com_casecart.name }
+            </td>
+             <td>
+             ${com_casecart.price }
+            </td>
+             <td>
+             <a href="com_caseCartQtyUp.do?name=${com_casecart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${com_casecart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${com_casecart.name}',${com_casecart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="com_caseCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach> 
+        </c:if>    
+                  
+<!-- other_product 값 들어가는 부분         -->
+<c:if test="${other_productcartList ne null && other_productcartList.size()>0 }">
+ 		<tr>
+        	<td colspan="7"><h2>SSD</h2></td>
+        </tr>
+         <c:forEach var="other_productcart" items="${other_productcartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${other_productcart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${other_productcart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${other_productcart.name }
+            </td>
+             <td>
+             ${other_productcart.price }
+            </td>
+             <td>
+             <a href="other_productCartQtyUp.do?name=${other_productcart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${other_productcart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${other_productcart.name}',${other_productcart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="other_productCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>      
+        </c:if>                 
+        
+   
+       
+        
+<!--  토탈 금액 수정 바람        -->
       <tr>
-         <td colspan="5" style="text-align:center;">
+         <td colspan="7" style="text-align:center;">
             총 금액 : ${totalMoney}원
          </td>
       </tr>
-      <tr>
-         <td colspan="5" style="text-align:center;">
-         	<input type="submit" value="삭제" formaction="cpuCartRemove.do"/>
-         </td>
-      </tr>
+      
       </table>
 </form>
-	</c:if>
-	<c:if test="${cartList == null }">
-      <section class="div_empty">
-     컴퓨터 정보가 없습니다.
-      </section>
-	</c:if>
- 
+	 
+
    		<a href="comList.jsp">쇼핑 계속하기</a>
  
    
 </section>
-</nav>
+
 </body>
 </html> 

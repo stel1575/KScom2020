@@ -4,20 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>cpu등록 폼</title>
 <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-
-<section id = "registForm">
-   <nav>
+<jsp:include page="nav.jsp"></jsp:include>
+<section>
+   
       <h2>CPU등록</h2>
-   </nav>
+   
       <form action="cpuRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
       
    <table>
-   
    <tr>
       <td class = "td_left">
          <label for = "name">제품 이름 : </label>
@@ -27,12 +26,20 @@
       </td>
    </tr>
    
-   <tr>
+   <tr>	
       <td class = "td_left">
          <label for = "core">코어 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "core" id ="core"/>
+         <select id="core" name="core">
+         
+         <option value="dual">듀얼코어</option>
+         <option value="quad">쿼드코어</option>
+         <option value="hexa">헥사코어</option>
+         <option value="octa">옥사코어</option>
+         <option value="another">기타코어</option>
+       
+         </select>
       </td>
    </tr>
    
@@ -74,7 +81,7 @@
          <label for = "content">제품 정보 : </label>
       </td>
       <td class = "td_right">
-         <textarea name="content" id="content" rows="13" cols="40" wrap="off"></textarea>
+         <textarea name="content" id="content" rows="13" cols="70" wrap="virtual"></textarea>
       </td>
    </tr>
    <tr>

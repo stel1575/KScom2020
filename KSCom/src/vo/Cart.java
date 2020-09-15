@@ -5,6 +5,13 @@ import java.net.URLEncoder;
 public class Cart {
 
 	private String image;
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String name;
 	private int price;
 	private int qty;

@@ -11,11 +11,12 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
+<jsp:include page="nav.jsp"></jsp:include>
 
-<section id = "registForm">
-   <nav>
+<section>
+   
       <h2>Ram등록</h2>
-   </nav>
+   
       <form action="ramRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
       
    <table>
@@ -87,7 +88,7 @@
          <label for = "content">제품 정보 : </label>
       </td>
       <td class = "td_right">
-         <textarea name="content" id="content" rows="13" cols="40" wrap="off"></textarea>
+         <textarea name="content" id="content" rows="13" cols="70" wrap="virtual"></textarea>
       </td>
    </tr>
    <tr>

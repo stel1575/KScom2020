@@ -10,17 +10,26 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
-<form action="">
-<ul>
-	<li><a href="cpuList.do">CPU</a></li>
-	<li><a href="ramList.do">RAM</a></li>
- 	<li><a href="mainboardList.do">MainBoard</a></li>
- 	<li><a href="gpuList.do">그래픽카드</a></li>
-</ul>
-</form>
-</nav>
+<jsp:include page="nav.jsp"></jsp:include>
 
+
+<section>
+	<article>
+	<a href="cpuList.do"><img src="images/cpu_i5.jpg" class="add_image"></a>
+	</article>
+	<article>
+	<a href="gpuList.do"><img src="images/gpu_1.jpg" class="add_iamge"></a>
+	</article>
+	<article>
+	<a href="ramList.do"><img src="images/ram_1.jpg" class="add_image"></a>
+	</article>
+	<article>
+	<a href="mainboardList.do"><img src="images/mainboard_1.png" class="add_image"></a>
+	</article>
+	<article>
+	<img src="images/speaker_1.jpg" class="add_iamge">
+	</article>
+</section>
 
 
 </body>

@@ -14,8 +14,9 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
-<section id = "listForm">
+<jsp:include page="nav.jsp"></jsp:include>
+
+<section>
 <c:if test="${ramList != null}">
 <h2>ram 정보</h2>	
  
@@ -39,13 +40,10 @@
 </c:if>
 <c:if test="${ramList==null }">
 	<div class="div_empty">
-	없음
+	<h3>램리스트에 담긴 정보가 없습니다.</h3>
 	</div>
 </c:if>
 <c:if test="${todayImageList !=null }">
-
-
-<div id="light_com"><a href="cpuList.do">cpu리스트 가기</a></div>
 
 
 
@@ -67,15 +65,21 @@
 </div>
 </c:if>
 </section>
-	<ul>
-		<div id="insertProduct">
-		<li><a href="cpuRegistForm.do">CPU등록</a></li>
-		<li><a href="ramRegistForm.do">램 등록</a></li>
- 		<li><a href="mainboardRegistForm.do">메인보드 등록</a></li>
- 		</div>
+<!-- 관리자만 보이는 페이지 -->
+<section>
+	<ul>	
+		<li><a href="cpuRegistForm.do" class="adPage">CPU등록</a></li>
+		<li><a href="ramRegistForm.do" class="adPage">램 등록</a></li>
+ 		<li><a href="mainboardRegistForm.do" class="adPage">메인보드 등록</a></li>
+ 		<li><a href="gpuRegistForm.do" class="adPage">그래픽카드 등록</a></li>
  	</ul>
-  
-</nav>
+ 	<ul>
+		<li><a href="cpuList.do" class="light_com">cpu리스트 보러가기</a></li>
+		<li><a href="ramList.do" class="light_com">ram리스트 보러가기</a></li>
+		<li><a href="gpuList.do" class="light_com">그래픽카드 보러가기</a></li>
+		<li><a href="mainboardList.do" class="light_com">메인보드 보러가기</a></li>
+	</ul>
+</section> 
 
 </body>
 </html>

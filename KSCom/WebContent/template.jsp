@@ -25,7 +25,8 @@
 		    else{
 		%>
 			<li>[등급 : <%if(MEMBER_ID!=null&&MEMBER_ID.equals("admin")){%>관리자
-			<%}else /* if(MEMBER_ID!=null&&MEMBER_ID.equals("N")) */ { %>일반<%} %>]<br>
+			<a href ="#">-회원관리-</a>
+			<%}else { %>일반<%} %>]<br>
 			${MEMBER_ID}님 환영합니다.
 			<a href = "logout">로그아웃</a>
 		<%

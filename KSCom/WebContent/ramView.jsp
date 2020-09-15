@@ -10,30 +10,32 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
-<section id = "listForm">
+<jsp:include page="nav.jsp"></jsp:include>
+
+<section>
 <h2>${ram.name}의 상세정보</h2>
-	<section id="content_main">
-		<section id = "content_left">
-			<img src="images/${ram.image}"/>
-		</section>
-		<section id = "content_right">
+		<article>
+			<img src="images/${ram.image}" class="add_image"/>
+		</article>	
+		
 			<b>브랜드: </b> ${ram.brand}<br>
 			<b>이름 : </b> ${ram.name}<br>
 			<b>클럭: </b>${ram.clock }<br>
 			<b>용량 :</b>${ram.capacity }<br>
 			<b>가격 : </b> ${ram.price}<br>
+			<aside>
 			<p id="desc">
 			<b>제품 설명 : </b> ${ram.content}<br>
 			</p>
-		</section>
+			</aside>
+		
 		<div style="clear:both"></div>
-		<nav id = "commandList">
+		<div id = "commandList">
 			<a href="ramList.do">쇼핑계속하기</a>
 			<a href="ramCartAdd.do?id=${ram.id}">장바구니에담기</a>
-		</nav>
-	</section>
+		</div>
+	
 </section>
-</nav>
+
 </body>
 </html>

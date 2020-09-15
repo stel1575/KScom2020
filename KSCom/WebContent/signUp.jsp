@@ -4,20 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	#joinformArea{
-		width : 400px;
-		margin : auto;
-		border : 1px solid gray;
-	}
-	table{
-		width : 380px;
-		margin :  auto;
-		text-align: center;
-	}
-</style>
+<link rel="stylesheet" href="css/form.css">
 </head>
 <body>
+<jsp:include page="template.jsp"></jsp:include>
+<nav>
 <section id = "joinformArea">
 <form name="joinform" action="./memberJoinAction.me" method="post">
 <table>
@@ -63,5 +54,6 @@
 </table>
 </form>
 </section>
+</nav>
 </body>
 </html>
