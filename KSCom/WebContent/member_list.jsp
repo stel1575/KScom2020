@@ -37,7 +37,7 @@
 		</td>
 		<td>
 		<a href="memberDeleteAction.me?id=${member.MEMBER_ID}">삭제</a>
-		</td>
+		</td>	
 	</tr>
 	
 	</c:forEach>

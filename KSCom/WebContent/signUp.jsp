@@ -47,7 +47,7 @@
 	<tr>
 		<td colspan="2">
 			<a href="javascript:joinform.submit()">회원가입</a>&nbsp;&nbsp;
-			<a href="javascript:joinform.reset()">다시작성</a>
+			<a href="javascript:joinform.reset()">다시작성</a>&nbsp;&nbsp;
 			<a href="template.jsp">홈으로</a>
 		</td>
 	</tr>
