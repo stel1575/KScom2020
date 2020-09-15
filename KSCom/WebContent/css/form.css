@@ -1,0 +1,190 @@
+body{
+	font-family: "맑은 고딕","고딕","굴림";
+	
+}
+header{
+	width:80%;
+	background: navy;
+	margin-right:auto;
+	margin-left:auto;
+	padding:10px;
+	overflow:hidden;
+	}
+header ul{
+	list-style-type:none;
+	
+}
+header ul li{
+	
+	float: right;
+	margin-right:15px;
+	font-size:0.9em;
+	
+}
+header ul li a{
+	color:white;
+	text-decoration: none;
+	
+}
+header ul li a:hover{
+	color: red;
+	
+}
+
+ nav{
+	width:80%;
+	margin: auto;
+	
+}
+
+
+nav form table{
+
+	border: 1px solid black;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	
+	
+}
+nav form table td	{
+	border: 1px solid gray;
+}
+nav ul{
+	list-style-type:none;
+	
+}
+ nav li{
+	float: left;
+	margin-right:15px;
+	
+}
+nav ul li a{
+	font-size:1.6em;
+	color:black;
+	text-decoration:none;
+	border-right:1px solid blue;
+	
+}
+nav ul li a:hover{
+	color:red;
+	
+}
+nav section h2{
+		text-align:center;
+	}
+nav section	img{
+		width: 180px;
+		height: 180px;
+		border: none;
+	}
+
+footer{
+	
+}
+
+#upImage{
+	width: 15px;
+	border:0px;
+}
+#downImage{
+	width: 15px;
+	border: 0px;
+}
+#listForm{
+		width:100%;
+		border:3px solid black;
+		margin:auto;
+	}
+#registForm{
+      width: 500px;
+      height: 600px;
+      border : 1px solid red; 
+      margin:auto; 
+   }   	
+	
+	
+
+#content_main{
+		height:300px;
+	}
+#content_left{
+		width: 300px;
+		float:left;
+	}
+#content_right{
+		width: 340px;
+		float:left;
+	}
+#commandList{
+		text-align: center;
+	}
+#commandCell{
+      text-align: center;
+      
+   }
+#desc{
+		height:170px;
+		background: skyblue;
+	}
+
+#todayImageList{
+		text-align: center;
+	}
+#productImage{
+		width: 150px;
+		height: 150px;
+		border: none;
+	}
+#todayImage{
+		width: 50px;
+		height: 50px;
+		border: none;
+	}
+#insertProduct{
+		font-size:1.4em;
+		color:black;
+		text-decoration:none;
+		border:1px solid rightblue ;
+	}
+#light_com{
+	
+	color: red;
+	text-align: right;
+	text-decoration: none;
+	
+}	
+	
+.div_empty{
+		background-color:red;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+.td_left{
+      width: 150px;
+      background:orange;
+   }
+.td_right{
+      width: 300px;
+      background:skyblue;
+   }
+.tr_top {
+   background-color: lime;
+}
+#productImage{
+   width:150px;
+   height:150px;
+   border:none;
+}
+#cartImage{
+   width:70px;
+   height:70px;
+   border:none;
+}
+#select{
+	text-align: right;
+}
+#commandList{
+	text-align: center;
+}
