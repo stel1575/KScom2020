@@ -1,5 +1,6 @@
 package action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,12 +18,18 @@ public class CpuCartListAction implements Action {
 		
 		int totalMoney = 0;
 		int money = 0 ;
-		
+	try {	
+		if(cartList.size()!=0) {
 		for (int i = 0; i < cartList.size(); i++) {
 			money = cartList.get(i).getPrice()*cartList.get(i).getQty();
 			totalMoney += money;
 		}
-
+		}
+	}catch (Exception e) {
+		System.out.println("씨피유카트리스트엑션부분"+e);
+		
+		
+	}
 		request.setAttribute("totalMoney", totalMoney);
 		request.setAttribute("cartList", cartList);
 		ActionForward forward = new ActionForward("cpuCartList.jsp", false);

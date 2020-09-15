@@ -41,6 +41,11 @@
 	}
 	function checkQtyMainboard(name,qty){
 		if(qty != 1){
+			location.href="mainboardCartQtyDown.do?name="+ encodeURIComponent(name);
+		}
+	}
+	function checkQtyGpu(name,qty){
+		if(qty != 1){
 			location.href="gpuCartQtyDown.do?name="+ encodeURIComponent(name);
 		}
 	}
@@ -66,70 +71,70 @@
     		<select id = "startMoney" name="startMoney">
     			<option>=최하=</option>
     			<c:choose>
-    				<c:when test="${startMoney==1000 }">
-    					<option selected="selected">1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-	    				<option>4000</option>
+    				<c:when test="${startMoney==10000 }">
+    					<option selected="selected">10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${startMoney==2000 }">
-    					<option>1000</option>
-    					<option selected="selected">2000</option>
-    					<option>3000</option>
-	    				<option>4000</option>
+    				<c:when test="${startMoney==20000 }">
+    					<option>10000</option>
+    					<option selected="selected">20000</option>
+    					<option>30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${startMoney==3000 }">
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option selected="selected">3000</option>
-	    				<option>4000</option>
+    				<c:when test="${startMoney==30000 }">
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option selected="selected">30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${startMoney==4000 }">
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-	    				<option selected="selected">4000</option>
+    				<c:when test="${startMoney==40000 }">
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+	    				<option selected="selected">40000</option>
     				</c:when>
     				<c:otherwise>
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-    					<option>4000</option>
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+    					<option>40000</option>
     				</c:otherwise>
     			</c:choose>
     		</select>
     		<select id = "endMoney" name="endMoney">
     			<option>=최고=</option>
     			<c:choose>
-    				<c:when test="${endMoney==1000 }">
-    					<option selected="selected">1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-	    				<option>4000</option>
+    				<c:when test="${endMoney==10000 }">
+    					<option selected="selected">10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${endMoney==2000 }">
+    				<c:when test="${endMoney==20000 }">
     					<option>1000</option>
-    					<option selected="selected">2000</option>
-    					<option>3000</option>
-	    				<option>4000</option>
+    					<option selected="selected">20000</option>
+    					<option>30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${endMoney==3000 }">
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option selected="selected">3000</option>
-	    				<option>4000</option>
+    				<c:when test="${endMoney==30000 }">
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option selected="selected">30000</option>
+	    				<option>40000</option>
     				</c:when>
-    				<c:when test="${endMoney==4000 }">
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-	    				<option selected="selected">4000</option>
+    				<c:when test="${endMoney==40000 }">
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+	    				<option selected="selected">40000</option>
     				</c:when>
     				<c:otherwise>
-    					<option>1000</option>
-    					<option>2000</option>
-    					<option>3000</option>
-    					<option>4000</option>
+    					<option>10000</option>
+    					<option>20000</option>
+    					<option>30000</option>
+    					<option>40000</option>
     				</c:otherwise>
     			</c:choose>
     		</select>
@@ -151,7 +156,7 @@
 <!-- CPU 값 들어가는 폼 -->
 <c:if test="${cartList ne null && cartList.size()>0 }">
 		<tr>
-			<td colspan="7">CPU</td>
+			<td colspan="7"><h2>CPU</h2></td>
 		</tr>
 		
         <c:forEach var="cart" items="${cartList }" varStatus="status">
@@ -493,6 +498,7 @@
       
       </table>
 </form>
+	 
 	 
 
    		<a href="comList.jsp">쇼핑 계속하기</a>

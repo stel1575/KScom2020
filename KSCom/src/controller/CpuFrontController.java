@@ -344,7 +344,7 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/GpuCartQtyDown.do")){
+		else if(command.equals("/gpuCartQtyDown.do")){
 			action = new GpuCartQtyDownAction();
 			
 			try {
